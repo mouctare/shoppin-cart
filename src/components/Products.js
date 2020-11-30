@@ -10,7 +10,7 @@ class Products extends Component {
             <li key={product._id}>
               <div className="product">
                 <a href={"" + product._id}>
-                  <img src={product.image} alt={product.title}></img>
+                  <img src={product.image} alt={product.title} />
                   <p>{product.title}</p>
                 </a>
                 <div className="product-price">
