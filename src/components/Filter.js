@@ -4,12 +4,12 @@ import { filterProducts, sortProducts } from "../actions/productActions";
 
 class Filter extends Component {
   render() {
-    return !this.props.filterProducts ? (
+    return !this.props.filteredProducts ? (
       <div>Loading...</div>
     ) : (
       <div className="filter">
         <div className="filter-result">
-          {this.props.filterProducts.count} Products
+          {this.props.filteredProducts.length} Products
         </div>
         <div className="filter-sort">
           Order{" "}
@@ -32,7 +32,7 @@ class Filter extends Component {
           <select
             value={this.props.size}
             onChange={(e) =>
-              this.props.filterProducts(this.props.prodcuts, e.target.value)
+              this.props.filterProducts(this.props.products, e.target.value)
             }
           >
             <option value="">All</option>
@@ -52,8 +52,9 @@ export default connect(
   (state) => ({
     // Ici on connect le state
     size: state.products.size,
-    prodcuts: state.products.items,
-    filteredProducts: state.products.filteredProducts,
+    sort: state.products.sort,
+    products: state.products.items,
+    filteredProducts: state.products.filteredItems,
   }),
   {
     // et les actions
