@@ -1,5 +1,5 @@
-import { FETCH_PRODUCTS, ORDER_PRODUCTS_BY_PRICE } from "../types";
-import { FILTER_PRODUCTS_BY_SIZE } from "../types";
+import { FETCH_PRODUCTS } from "../types";
+import { FILTER_PRODUCTS_BY_SIZE, ORDER_PRODUCTS_BY_PRICE } from "../types";
 
 export const fetchProducts = () => async (dispatch) => {
   const res = await fetch("/api/products");
@@ -10,9 +10,7 @@ export const fetchProducts = () => async (dispatch) => {
   });
 };
 
-export const filterProducts = (products, size) => async (dispatch) => {
-  const res = await fetch("/api/products");
-  const data = await res.json();
+export const filterProducts = (products, size) => (dispatch) => {
   dispatch({
     type: FILTER_PRODUCTS_BY_SIZE,
     payload: {
@@ -31,14 +29,17 @@ export const sortProducts = (filteredProducts, sort) => (dispatch) => {
   if (sort === "latest") {
     sortedProducts.sort((a, b) => (a._id > b._id ? 1 : -1));
   } else {
-    sortedProducts.sort((a, b) =>
-      sort === "lowest"
-        ? a.price > b.price
-          ? 1
-          : -1
-        : a.price > b.price
-        ? -1
-        : 1
+    sortedProducts.sort(
+      (a, b) =>
+        sort === "lowest"
+          ? a.price > b.price
+            ? 1
+            : -1
+          : // cette fonction trie du prix du petit au  plus grand
+          a.price > b.price
+          ? -1
+          : 1
+      // cette fonction trie du prix du grand au  plus petit
     );
   }
   dispatch({
