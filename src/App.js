@@ -1,10 +1,10 @@
+// feature 1
 import React from "react";
+import data from "./data.json";
 import "./App.css";
-import HomeScreen from "./screens/HomeScreen";
-import AdminScreen from "./screens/AdminScreen";
-import store from "./store";
-import { Provider } from "react-redux";
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import Products from "./components/Products";
+import Filter from "./components/Filter";
+import Cart from "./components/Cart";
 
 class App extends React.Component {
   constructor() {
@@ -93,21 +93,37 @@ class App extends React.Component {
 
   render() {
     return (
-      <Provider store={store}>
-        <BrowserRouter>
-          <div className="grid-container">
-            <header>
-              <Link to="/">React Shopping Cart</Link>
-              <Link to="/admin">Admin</Link>
-            </header>
-            <main>
-              <Route path="/admin" component={AdminScreen} />
-              <Route path="/" component={HomeScreen} exact />
-            </main>
-            <footer>All right is reserved.</footer>
+      <div className="grid-container">
+        <header>
+          <a href="/">React Shopping Cart</a>
+        </header>
+        <main>
+          <div className="content">
+            <div className="main">
+              <Filter
+                count={this.state.products.length}
+                size={this.state.size}
+                sort={this.state.sort}
+                filterProducts={this.filterProducts}
+                sortProducts={this.sortProducts}
+              />
+              <Products
+                products={this.state.products}
+                addToCart={this.addToCart}
+              />
+            </div>
+            <div className="sidebar">
+              {/* ici on passe le cartItems au composant Cart.js */}
+              <Cart
+                cartItems={this.state.cartItems}
+                removeFromCart={this.removeFromCart}
+                createOrder={this.createOrder}
+              />
+            </div>
           </div>
-        </BrowserRouter>
-      </Provider>
+        </main>
+        <footer>All right is reserved.</footer>
+      </div>
     );
   }
 }

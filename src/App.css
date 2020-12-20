@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=wap");
 html {
   font-size: 62.5%;
   box-sizing: border-box;
 }
+
 body,
 #root {
   height: 100vh;
@@ -14,12 +14,12 @@ input,
 select,
 button,
 textarea {
-  font-family: Montserrat, Helvetica, Arial, sans-serif;
+  font-family: Monserrat, Helvetica, Arial, sans-serif sans-serif;
   font-size: 1.6rem;
 }
-
 .grid-container {
   display: grid;
+
   grid-template-areas:
     "header"
     "main"
@@ -32,14 +32,14 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: #ff8000;
+  color: orange;
 }
+
 header {
   grid-area: header;
   background-color: #203040;
   color: #ffffff;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 0.5rem;
 }
@@ -58,7 +58,6 @@ footer {
   justify-content: center;
   align-items: center;
 }
-
 .content {
   display: flex;
   flex-wrap: wrap;
@@ -69,7 +68,6 @@ footer {
 .sidebar {
   flex: 1 20rem;
 }
-
 /* products */
 .products {
   display: flex;
@@ -105,6 +103,7 @@ footer {
   text-align: center;
   flex: 1;
 }
+
 .product-price div {
   font-size: 2rem;
 }
@@ -120,7 +119,7 @@ footer {
 .button.primary {
   background-color: #f0c040;
 }
-/* Filter */
+/* Filter  */
 .filter {
   display: flex;
   justify-content: space-between;
@@ -131,7 +130,9 @@ footer {
 .filter div {
   flex: 1;
 }
-/* Index.css */
+
+/* App.css */
+
 .cart {
   padding: 1rem;
   margin: 1rem;
@@ -145,9 +146,20 @@ footer {
   width: 100%;
   list-style-type: none;
 }
+.cart-items {
+  padding: 0;
+  width: 100%;
+  list-style-type: none;
+}
+.cart-items {
+  padding: 0;
+  width: 100%;
+  list-style-type: none;
+}
 .cart-items img {
   width: 5rem;
 }
+
 .cart-items li {
   display: flex;
 }
@@ -157,7 +169,7 @@ footer {
 .cart-items li div:last-child {
   flex: 1;
 }
-.right {
+.righ {
   text-align: right;
 }
 .total {
@@ -169,88 +181,10 @@ footer {
 .total > div {
   font-size: 2rem;
 }
-.total > div,
+.total div,
 .total > button {
   flex: 1;
-}
-/* Checkout form */
-form {
-  width: 100%;
-}
-.form-container {
-  width: 100%;
-  padding: 0;
-  list-style-type: none;
-}
-.form-container li {
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-}
-input {
-  padding: 1rem;
-  border: 0.1rem #c0c0c0 solid;
-}
-/* Product Details */
-.product-details {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  max-height: 96vh;
-}
-.product-details img {
-  max-height: 100vh;
-  max-width: 46rem;
-  margin: 0 auto;
-}
-.product-details-description {
-  flex: 1 1;
-  margin: 1rem;
-}
-.close-modal {
-  position: absolute;
-  right: 1rem;
-  top: 2.5rem;
-  z-index: 1000;
-}
-
-/* Order Details */
-
-.order-details {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-.order-details li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.order-details li div {
-  padding: 10px;
-}
-.order-details .items {
-  text-align: right;
-  padding: 0;
-}
-.success-message {
-  color: green;
-}
-/* orders */
-.orders {
-  width: 100%;
-  padding: 10px;
-}
-tbody > tr:nth-child(odd) {
-  background-color: #f0f0f0;
-}
-td {
-  padding: 5px;
-}
-th {
-  text-align: left;
+  text-align: center;
 }
 
 /* Checkout*/
